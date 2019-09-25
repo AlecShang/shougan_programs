@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E8C7EB1-22F5-4B09-9C74-264A5DF2E542}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>联脑微官网</RootNamespace>
+    <AssemblyName>联脑微官网</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\animate.css" />
+    <Content Include="css\index.css" />
+    <Content Include="css\swiper.min.css" />
+    <Content Include="img.cn\menu_about.png" />
+    <Content Include="img.cn\menu_about_h.png" />
+    <Content Include="img.cn\menu_clients.png" />
+    <Content Include="img.cn\menu_clients_h.png" />
+    <Content Include="img.cn\menu_contact.png" />
+    <Content Include="img.cn\menu_contact_h.png" />
+    <Content Include="img.cn\menu_home.png" />
+    <Content Include="img.cn\menu_home_h.png" />
+    <Content Include="img.cn\menu_join.png" />
+    <Content Include="img.cn\menu_join_h.png" />
+    <Content Include="img.cn\menu_services.png" />
+    <Content Include="img.cn\menu_services_h.png" />
+    <Content Include="img.cn\menu_view.png" />
+    <Content Include="img.cn\menu_view_h.png" />
+    <Content Include="img.cn\p2_sl.png" />
+    <Content Include="img.cn\p2_sl2.png" />
+    <Content Include="img.cn\p3_sl.png" />
+    <Content Include="img.cn\p5_sl.png" />
+    <Content Include="img.cn\p5_sl2.png" />
+    <Content Include="img.en\menu_about.png" />
+    <Content Include="img.en\menu_about_h.png" />
+    <Content Include="img.en\menu_clients.png" />
+    <Content Include="img.en\menu_clients_h.png" />
+    <Content Include="img.en\menu_contact.png" />
+    <Content Include="img.en\menu_contact_h.png" />
+    <Content Include="img.en\menu_en.png" />
+    <Content Include="img.en\menu_home.png" />
+    <Content Include="img.en\menu_home_h.png" />
+    <Content Include="img.en\menu_join.png" />
+    <Content Include="img.en\menu_join_h.png" />
+    <Content Include="img.en\menu_services.png" />
+    <Content Include="img.en\menu_services_h.png" />
+    <Content Include="img.en\menu_view.png" />
+    <Content Include="img.en\menu_view_h.png" />
+    <Content Include="img.en\p2_sl.png" />
+    <Content Include="img.en\p2_sl2.png" />
+    <Content Include="img.en\p3_sl.png" />
+    <Content Include="img.en\p5bg.jpg" />
+    <Content Include="img.en\p5_sl.png" />
+    <Content Include="img.en\p5_sl2.png" />
+    <Content Include="img.en\p7_sl.png" />
+    <Content Include="img\address_beijing.png" />
+    <Content Include="img\address_shanghai.png" />
+    <Content Include="img\case_content_jscy_01.jpg" />
+    <Content Include="img\case_content_jscy_02.jpg" />
+    <Content Include="img\case_content_jscy_03.jpg" />
+    <Content Include="img\case_content_jscy_04.jpg" />
+    <Content Include="img\case_content_shhmj_01.jpg" />
+    <Content Include="img\case_content_shhmj_02.jpg" />
+    <Content Include="img\case_content_sjyx_01.jpg" />
+    <Content Include="img\case_content_sjyx_02.png" />
+    <Content Include="img\case_content_yyzy_01.jpg" />
+    <Content Include="img\case_content_yyzy_02.jpg" />
+    <Content Include="img\case_content_yyzy_03.jpg" />
+    <Content Include="img\case_content_yyzy_04.jpg" />
+    <Content Include="img\case_content_zhtg_01.jpg" />
+    <Content Include="img\case_content_zhtg_02.jpg" />
+    <Content Include="img\case_content_zhtg_03.jpg" />
+    <Content Include="img\close.png" />
+    <Content Include="img\crossscreen.png" />
+    <Content Include="img\hzhb.png" />
+    <Content Include="img\jscy_01.png" />
+    <Content Include="img\jscy_02.png" />
+    <Content Include="img\jscy_03.png" />
+    <Content Include="img\jscy_04.png" />
+    <Content Include="img\jscy_label.png" />
+    <Content Include="img\jscy_text.png" />
+    <Content Include="img\p4bg.jpg" />
+    <Content Include="img.en\p4_sl.png" />
+    <Content Include="img\menu_bg_01.png" />
+    <Content Include="img\menu_bg_02.png" />
+    <Content Include="img\menu_bg_03.png" />
+    <Content Include="img\menu_btn.png" />
+    <Content Include="img\menu_en.png" />
+    <Content Include="img\menu_wb.png" />
+    <Content Include="img\menu_wechat.png" />
+    <Content Include="img\p1bg.jpg" />
+    <Content Include="img\p1_sl.png" />
+    <Content Include="img.en\menu_btn.png" />
+    <Content Include="img.en\p1bg.jpg" />
+    <Content Include="img.en\p1_sl.png" />
+    <Content Include="img\p2bg.jpg" />
+    <Content Include="img\p3bg.jpg" />
+    <Content Include="img\p5bg.jpg" />
+    <Content Include="img\p7bg.jpg" />
+    <Content Include="img\pplt_label.png" />
+    <Content Include="img\pplt_text.png" />
+    <Content Include="img\shhmj_01.png" />
+    <Content Include="img\shhmj_02.png" />
+    <Content Include="img\shhmj_label.png" />
+    <Content Include="img\shhmj_text.png" />
+    <Content Include="img\shhsy_label.png" />
+    <Content Include="img\shhsy_text.png" />
+    <Content Include="img\sjyx_01.png" />
+    <Content Include="img\sjyx_02.png" />
+    <Content Include="img\sjyx_label.png" />
+    <Content Include="img\sjyx_text.png" />
+    <Content Include="img\up.png" />
+    <Content Include="img\yyzy_01.png" />
+    <Content Include="img\yyzy_02.png" />
+    <Content Include="img\yyzy_03.png" />
+    <Content Include="img\yyzy_04.png" />
+    <Content Include="img\yyzy_label.png" />
+    <Content Include="img\yyzy_text.png" />
+    <Content Include="img\zhtg_01.png" />
+    <Content Include="img\zhtg_02.png" />
+    <Content Include="img\zhtg_03.png" />
+    <Content Include="img\zhtg_label.png" />
+    <Content Include="img\zhtg_text.png" />
+    <Content Include="index.html" />
+    <Content Include="js\index.js" />
+    <Content Include="js\jquery-1.8.2.min.js" />
+    <Content Include="js\jquery.imagesloaded.min.js" />
+    <Content Include="js\prefixfree.min.js" />
+    <Content Include="js\swiper.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\联脑手机端.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>15298</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:15298/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

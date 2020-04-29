@@ -1,0 +1,3949 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Getinfo";
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" id="viewportid" content="target-densitydpi=320,width=640,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="~/Areas/Benz/js/jquery.form.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://share.shougan.com.cn/Share.js"></script>
+    <script src="~/Areas/Benz//js/data.js"></script>
+    <script src="~/Areas/Benz//js/index.js"></script>
+    <script src="~/Areas/Benz/js/exif-js-master/exif.js"></script>
+    <link href="~/Areas/Benz//css/index.css" rel="stylesheet" />
+    <script>
+        ////获取url中的参数
+        function getUrlParam(name) {
+
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return decodeURI(r[2]); return null; //返回参数值
+        }
+        ////是否是微信
+        //function isweixin() {
+        //    var ua = navigator.userAgent.toLowerCase();
+        //    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+        //        return true;
+        //    } else {
+        //        return false;
+        //    }
+        //}
+        //if (!isweixin()) {
+        //    if (getUrlParam("openid") != null) {
+        //        var uid = getUrlParam("openid");
+        //    }
+        //    else {
+        //        // window.location.href = "http://htc.shougan.com.cn/oauth2.aspx?redirect_url=" + encodeURI(window.location.href) + "&scope=snsapi_base";
+        //    }
+        //}
+        //else {
+        //    // window.location.href = "404.html";
+        //}
+        //for (var i = 0; i < province.length; i++) {
+        //    $.ajax({
+        //        //提交数据的类型 POST GET
+        //        type: "POST",
+        //        //提交的网址
+        //        url: "/Benz/Benz/ss",
+        //        cache: false,
+        //        //提交的数据
+        //        data: {
+        //            OwnID: i+1,
+        //            OwnName: province[i].ProName,
+        //            ParentID: 0,
+        //        },
+        //        //返回数据的格式
+        //        datatype: "json",//"xml", "html", "script", "json", "jsonp", "text".
+
+
+        //        //成功返回之后调用的函数
+        //        success: function (data) {
+                   
+        //        },
+
+        //        //调用出错执行的函数
+        //        error: function (e) {
+        //        }
+        //    });
+        //}
+
+        //for (var i = 0; i < city.length; i++) {
+        //    $.ajax({
+        //        //提交数据的类型 POST GET
+        //        type: "POST",
+        //        //提交的网址
+        //        url: "/Benz/Benz/ss",
+        //        cache: false,
+        //        //提交的数据
+        //        data: {
+        //            OwnID: i + 5,
+        //            OwnName: city[i].CityName,
+        //            ParentID: city[i].ProID,
+        //        },
+        //        //返回数据的格式
+        //        datatype: "json",//"xml", "html", "script", "json", "jsonp", "text".
+
+
+        //        //成功返回之后调用的函数
+        //        success: function (data) {
+
+        //        },
+
+        //        //调用出错执行的函数
+        //        error: function (e) {
+        //        }
+        //    });
+        //}
+        //for (var i = 0; i < dealer.length; i++) {
+        //    $.ajax({
+        //        //提交数据的类型 POST GET
+        //        type: "POST",
+        //        //提交的网址
+        //        url: "/Benz/Benz/ss",
+        //        cache: false,
+        //        //提交的数据
+        //        data: {
+        //            OwnID: i + 65,
+        //            OwnName: dealer[i].DisName,
+        //            ParentID: dealer[i].CityID * 1 + 4,
+        //            DisAddress: dealer[i].DisAddress,
+        //            ContactsName: dealer[i].MM,
+        //            Phone: dealer[i].Tel,
+        //            Eamil: dealer[i].Email,
+                    
+        //        },
+        //        //返回数据的格式
+        //        datatype: "json",//"xml", "html", "script", "json", "jsonp", "text".
+
+
+        //        //成功返回之后调用的函数
+        //        success: function (data) {
+
+        //        },
+
+        //        //调用出错执行的函数
+        //        error: function (e) {
+        //        }
+        //    });
+        //}
+    </script>
+    <title></title>
+</head>
+
+<body>
+    <!--横屏提示-->
+    <div class="hpts">
+        <div class="crossscreen"></div>
+    </div>
+    <!--横屏提示-->
+    <!--页面整体Loading-->
+    <div style="height:100%;width:100%;position:absolute;z-index:10000;display:none;" id="loadinggif">
+        <div style="height:100%;width:100%;position:absolute;background-color:#000;opacity:0.4;">
+        </div>
+        <img class="loadinggif" src="/Areas/benz/img/loading2.gif" />
+    </div>
+    <!--页面整体Loading-->
+
+
+    <!--Loading-->
+    <div class="loading">
+        <div class="logo"></div>
+        <div class="loadingcemara"></div>
+        <div class="loading_div"></div>
+        <div class="loadingline" style="display:none">
+            <div class="loadingline2"></div>
+        </div>
+    </div>
+    <!--Loading-->
+    <!--首页-->
+    <div id="p1" class="index123">
+        <div class="bg"></div>
+        <div class="logo"></div>
+        <div class="p1t"></div>
+        <div class="up"></div>
+        <div class="camera"></div>
+    </div>
+    <!--首页-->
+    <!--视频页-->
+    <div id="p2">
+        <div class="mainbg"></div>
+        <div class="p2black"></div>
+        <div class="logo"></div>
+        <!--<div class="icon"></div>-->
+        <div class="p2v" >
+            <video controls="controls" style="position:absolute; width: 100%; height: 100%; left: 0; top: 0; background-image:url(../../Areas/Benz/img/video.png);background-size:cover" src="/Areas/benz/img/v2.mp4" id="video"></video>
+        </div>
+        <div class="p2v2">
+            <div class="p2rule"></div>
+        </div>
+        <div class="p2font1" id="myprobtn"></div><br />
+        <div class="p2font5" id="rewardbtn"></div><br />
+        <div class="p2font3" id="rankbtn"></div><br />
+        <div class="p2font4" id="contactbtn"></div>
+    </div>
+    <!--视频页-->
+    <div id="joined">
+        <div class="myproreturn" id="joinedreturn"></div>
+    </div>
+    <!--我的作品页-->
+    <div id="mypropage">
+        <div class="myproblack"></div>
+        <div class="rule"></div>
+        <div class="logo"></div>
+        <!--<div class="icon"></div>-->
+        <div class="myproi">
+            <label class="username"></label>
+            <div class="mypropagei2"></div>
+            <label class="votenum"></label>
+            <div class="mypropagei3" id="tp"></div>
+            <div class="mypropagei4"></div>
+        </div>
+        <div class="myproreturn" id="myproreturn"></div>
+        <div class="myproreturn" id="myproreturn2" hidden></div>
+        <div class="myprodiv" style="max-height:96%;max-height:96%">
+            <div id="getborder">
+            <img src="" style="margin:10px 10px 10px 10px;max-width:96%;max-height:96%;border:3px solid #ffffff" id="mypropic" />
+            </div>
+                <!--<div class="mypropagei1"></div>-->
+        </div>
+        <div class="share">
+            <div class="share1"></div>
+        </div>
+    </div>
+    <div id="joinisnull">
+        <div class="myproreturn" id="isnullreturn"></div>
+    </div>
+    <!--我的作品页-->
+    <!--获奖名单-->
+    @*<div id="rewardpage" style="display:none">
+        <div class="contactblack"></div>
+        <div class="logo"></div>
+        <div class="bg"></div>
+        <div class="rule"></div>
+        <div class="contactreturn" id="rewardreturn"></div>
+        <div>
+            <table class="jointable" style="background-color:#000">
+                <tr>
+                    <td height="8%" style="font-size:25px" colspan="5">
+                    <label style="color:#ffffff">获奖名单</label>
+                    </td>
+                </tr>
+                <tr height="5%">
+                    <td>
+                        <label style="font-size:25px;color:#ffffff;">姓名</label>                    
+                    </td>
+                    <td>
+                        <label style="font-size:25px;color:#ffffff;">省份</label>
+                    </td>
+                    <td>
+                        <label style="font-size:25px;color:#ffffff;">城市</label>
+                    </td>
+                    <td>
+                        <label style="font-size:25px;color:#ffffff;">经销商</label>
+                    </td>
+                    <td>
+                        <label style="font-size:25px;color:#ffffff;">组别</label>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="text-align:start;" colspan="5">
+                        <textarea id="dealer2" readonly style="font-size:25px;width:95%;height:79%;margin-bottom:1px;background-color:#000;color:#ffffff;border:0px;overflow-y:scroll; -webkit-overflow-scrolling: touch;">李新华  浙江    舟山   舟山利星     GLA
+  王鑫  上海    上海   上海利星     GLE
+                        </textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>*@
+
+
+
+    <div id="rewardpage" style="display:none">
+        <div class="rank2bg"></div>
+        <div class="rank2bg1"></div>
+        <div class="logo"></div>
+        <div class="rule"></div>
+        <div class="rank2div">
+            <div class="tab-title">
+                <ul>
+                    <li class="current" id="hjgla" style="background-color:grey">GLA</li>
+                    <li class="current" id="hjglc">GLC</li>
+                    <li class="current" id="hjgle">GLE</li>
+                    <li class="current" id="hjgles">GLE s</li>
+                    <li class="current" id="hjgls">GLS</li>
+                </ul>
+            </div>
+            <div class="tab-content" id="huojiang">
+                <div class="item huojiangscroll" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;" id="tbinfo1">
+                    <table cellspacing="10"  >
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>1</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>台州欧普汽车销售有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>林雪琴</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>9440</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>2</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>启东和星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>蔡炎宏</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>4547</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>3</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>瑞安市红升汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陈晓洁</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1825</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>4</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>杭州百得利之星汽车销售有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>刘艳</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1765</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>5</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波之星汽车维修服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>Rachel</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1272</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>6</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>嘉兴合信汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>谢玉珍</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1168</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>7</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>瑞安市红升汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>施彩琴</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1027</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>8</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>铜陵利星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>谢玮薇</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>975</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>9</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>铜陵利星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>方静</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>726</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>10</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>翁晓露</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>656</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>11</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>盐城之星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>李莉莉</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>621</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>12</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>马鞍山之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>王文灿</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>586</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>13</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>淮安万帮金星汽车销售有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>张耀</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>502</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>14</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>丽水市丽水之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>周洲</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>501</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>15</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>丽水市丽水之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>钟林楠</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>454</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>16</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>义乌市新徽汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>邓会梅</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>426</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>17</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>杭州东星行汽车维修有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>童晓强</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>409</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>18</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海越星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>马海峰</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>404</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>19</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宣城利星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>晏玉飞</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>367</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>20</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>永康市国邦汽车销售有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>王霞</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>339</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>21</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>义乌市新徽汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>吕红</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>309</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>22</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>舟山利星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郭芬娜</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>308</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>23</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>阜阳伟久汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>代华丽</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>308</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>24</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南京江北之星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>谭虎</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>307</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>25</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>徐州利星行汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>张星星</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>301</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>26</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>杭州百得利之星汽车销售有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>葛姣凤</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>296</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>27</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>嵊州宝利德汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郑久彦</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>293</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>28</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>周米利</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>288</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>29</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>金华金之星汽车贸易有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>方亮</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>281</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>30</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>盐城之星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>刘萍</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>277</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>31</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东驰汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>李宏亮</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>276</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>32</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>临海欧龙汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>周珊珊</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>272</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>33</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>安徽之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>贾冰心</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>244</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>34</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>铜陵利星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>许俊</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>242</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>35</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波利星汽车服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>林航</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>241</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>36</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>杭州百得利之星汽车销售有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>王中进</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>236</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>37</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南京万帮新区汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>王莹</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>232</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>38</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>杭州之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>高群苗</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>220</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>39</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海中升奉星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>余珺</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>217</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>40</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>舟山利星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>夏微</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>216</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="item huojiangscroll" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;" id="tbinfo2">
+                    <table cellspacing="10">
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>1</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海利星汽车维修有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>徐敏娜</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>11011</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>2</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>丽水市丽水之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>单春盈</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>5201</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>3</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江星杭汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>钟珊珊</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>3306</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>4</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>马鞍山之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>穆若尘</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>3222</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>5</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>严鼎</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2045</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>6</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>安徽鹏龙融富汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>丁文俊</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2030</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>7</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>安徽鹏龙融富汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>王建</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1728</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>8</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海宝利德汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>徐文博</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1365</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>9</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江鹏龙之奔汽车销售有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>潘慧红</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1213</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>10</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南通和星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>胡晓烽</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1128</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>11</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海利之星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郑文涛</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1005</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>12</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江星杭汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>吴海方</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>838</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>13</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>杭州奕星汽车服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>张小燕</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>808</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>14</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江星杭汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>朱建伟</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>783</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>15</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>桐乡利之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>朱金明</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>762</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>16</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>义乌欧龙汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>方文勇</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>692</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>17</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>盐城之星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>吴苏</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>579</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>18</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波宁兴新宇汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>叶仁灶</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>560</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>19</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海冠松之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>冯斌</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>504</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>20</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>义乌市新徽汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>施远见</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>494</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>21</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>台州之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>齐微微</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>488</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>22</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>昆山利星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>高雅芳</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>440</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>23</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>温州华能达汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>林洁琼</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>383</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>24</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>江苏中驰汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>皮飞</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>378</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>25</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海汇之星汽车维修服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>姚中元</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>359</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>26</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>汤文莲</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>353</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>27</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陈建民</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>336</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>28</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>乐清华星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>林百腾</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>330</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>29</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>台州欧普汽车销售有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>金尚军</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>327</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>30</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>苏州元星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>卢欢</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>327</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>31</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南通和星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>许海林</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>323</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>32</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>盐城之星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>朱海东</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>319</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>33</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>舟山利星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>倪文武</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>310</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>34</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>苏州海星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>颜佳佳</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>306</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>35</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南京宁星汽车维修服务有限公司雨花东路分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>居万勇</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>302</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>36</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>苏州利星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>施国豹</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>302</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>37</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>苏州元星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>孙斌</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>300</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>38</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>苏州元星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>龚静娟</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>279</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>39</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>逯安国</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>272</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>40</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>泰州之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>沈晶晶</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>269</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="item huojiangscroll" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;" id="tbinfo3">
+                    <table cellspacing="10">
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>1</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>胡培华</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2274</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>2</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江利星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>吕春苗</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1476</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>3</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南通和星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>王松</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1164</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>4</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江华策北控汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>钱建江</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1155</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>5</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波之星汽车维修服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>宁波庆泰工艺品有限公司</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1036</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>6</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>安徽之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>程晓能</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>942</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>7</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江鹏龙之奔汽车销售有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>林振宇</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>802</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>8</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>义乌利星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>楼志刚</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>709</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>9</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江慈吉之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>徐家海</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>705</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>10</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南通和星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>南通跃南机械制造有限公司</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>659</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>11</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>合肥利之星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>刘晓毅</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>591</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>12</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>台州欧普汽车销售有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陈伸华</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>462</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>13</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>瑞安市红升汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>叶晋均</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>380</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>14</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>无锡中升汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>无锡英之辅语言培训中心</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>333</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>15</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>苏州利星汽车服务有限公司园区旺墩路分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>金利萍</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>321</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>16</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>阜阳伟久汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>杨辉</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>244</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>17</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波利之星汽车服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>王亚玲</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>237</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>18</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>嵊州宝利德汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>蒋国成</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>211</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>19</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>常州万帮汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>张冠</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>205</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>20</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>无锡可达汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>李江</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>176</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>21</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江利星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>金维卫</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>171</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>22</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>常州外汽东豪汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>刘程琦</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>169</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>23</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海中升之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>上海贯祯钢铁物资有限公司</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>153</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>24</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>温州之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>林大章</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>148</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>25</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海星瀚汽车维修服务有限公司-金沙江路分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郎庭灿</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>134</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>26</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>瑞安市红升汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>李新敏</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>119</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>27</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海越星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>齐鸿伟</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>111</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>28</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>沈学文</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>111</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>29</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陈辉</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>109</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>30</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>安徽鹏龙融富汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>谢荣宝</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>107</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>31</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江星杭汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>倪晓剑</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>104</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>32</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>嘉兴合信汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>倪火明</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>103</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>33</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江慈吉之星汽车有限公司周巷分公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>俞萍萍</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>98</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>34</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陶自学</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>90</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>35</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江星杭汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>金长明</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>87</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>36</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>吴江之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>孟潇达</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>86</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>37</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江星杭汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>孙华</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>85</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>38</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江越星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>邵志芳</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>82</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>39</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>台州德星汽车有限公司汽车城展厅 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>朱玉春</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>76</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>40</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>台州德星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>周益民</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>60</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="item huojiangscroll" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;"  id="tbinfo4">
+                    <table cellspacing="10">
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>1</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>宋英</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1053</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>2</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波宁兴新宇汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>宁波市镇海银亿化工有限公司</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>822</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>3</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>台州欧普汽车销售有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>曹斌辉</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>750</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>4</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>连云港之星汽车销售有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>尹超</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>652</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>5</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南通和星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>周小均</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>617</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>6</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东华之星汽车维修服务有限公司宝山分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>芮伟祥</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>463</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>7</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海宝利德汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>刘伟松</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>282</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>8</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>嘉兴合信汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>叶佩红</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>269</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>9</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>苏州海星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>丁梦</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>244</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>10</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>台州之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>任政颖</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>229</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>11</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南京宁星汽车维修服务有限公司雨花东路分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>许茂荣</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>226</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>12</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东华之星汽车维修服务有限公司宝山分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>裴世春</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>157</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>13</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南京江北之星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>罗琼</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>153</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>14</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海星瀚汽车维修服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陶吉仁</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>145</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>15</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>无锡可达汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>吉顺伟</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>109</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>16</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>台州德星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>江云斌</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>104</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>17</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>常州万帮汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>包红梅</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>78</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>18</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>常熟中升之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>钱怡雯</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>48</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>19</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宿迁文峰伟恒汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>曹先生</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>47</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>20</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海中升之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>杰埃伊国际</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>38</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>21</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江星杭汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>许艳丽</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>33</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>22</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>安徽之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陈庆奇</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>29</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>23</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海中升之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>高祖弢</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>29</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>24</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海中升之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>上海祥欣畜禽有限公司</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>25</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>25</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波利之星汽车服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陈科霖</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>25</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>26</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>启东和星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>谢辉</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>22</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>27</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>乐清华星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>叶仕宽</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>20</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>28</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>六安恒信之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>卜海兵</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>18</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>29</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海闵星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>萌萌</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>16</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>30</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>扬州利之星汽车维修服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郑伟</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>16</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>31</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海利星汽车维修有限公司延安西路分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>宋宇定</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>15</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>32</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>瑞安市红升汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>戈晨剑</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>13</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>33</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海星瀚汽车维修服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>刘兹平</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>12</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>34</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宜兴利星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>刘卫平</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>9</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>35</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>安徽鹏龙融富汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>田明明</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>7</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>36</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波宁兴新宇汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>姚雅敏</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>6</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>37</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>绍兴之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陈淑琴</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>6</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>38</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>扬州利之星汽车维修服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>胡松</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>6</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>39</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海闵星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>张庆华</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>5</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>40</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>常州之星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>孙杰</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>4</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>41</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波宁兴新宇汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>丁文耀</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>3</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>42</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>苏州利星汽车服务有限公司园区旺墩路分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>万德宝</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>43</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>常州外汽星豪汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>周文平</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>44</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海利之星汽车有限公司闵行分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>周媛</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>45</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东驰汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>虞阳</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>46</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>绍兴之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>李小莲</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>47</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东驰汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>崔亚</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>48</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海利星汽车维修有限公司延安西路分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>成</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>49</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海汇之星汽车维修服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郭龙英</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>50</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>常州之星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>赵波涛</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>51</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海中升之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郑先生</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>52</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>丽水市丽水之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>李荣香</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>53</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东驰汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陈广礼</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>54</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>徐州利星行汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>王永超</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>55</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海星瀚汽车维修服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>周鸣捷</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>56</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>永康市国邦汽车销售有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>杨梅</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>57</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>绍兴之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>吴小春</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>58</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波利之星汽车服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>徐明福</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>59</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>江苏中驰汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>常福莲</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>60</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海冠松之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>汤文聪</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>61</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东驰汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>涂必勤</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>62</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海利星汽车维修有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>李品山</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>63</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>合肥利之星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>巫海燕</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>64</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东驰汽车有限公司世纪大道分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>山崎昇</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>65</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>义乌市新徽汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>金进光</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>66</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>苏州元星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>庞柏林</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>67</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>盐城之星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>周粉香</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>68</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>苏州元星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郭峰</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>69</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>湖州之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>邵利华</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>70</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>常熟中升之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>孙宏旭</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>71</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>苏州鹏龙东昌汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>甘志明</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>72</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东驰汽车有限公司世纪大道分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>巨人团队</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>73</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>湖州之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>潘美宝</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>74</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东驰汽车有限公司世纪大道分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>蒋雨梅</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>75</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南京中升之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>和运国际租赁有限公司南京分公司</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>76</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海汇之星汽车维修服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>沈俊文</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>77</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>义乌利星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>吴凯航</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>78</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江利星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>吕汉成</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>79</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>无锡中升汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>计帷幄</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>80</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南京万帮新区汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郑维舒</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>1</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="item huojiangscroll" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;" id="tbinfo5">
+                    <table  cellspacing="10">
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>1</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>台州德星汽车有限公司汽车城展厅 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>张保岩</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>3549</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>2</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东驰汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>邵赛赛</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2565</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>3</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南京万帮新区汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>王竹锋</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2413</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>4</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>嘉兴合信汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>于亮</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>944</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>5</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>孔福泉</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>425</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>6</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>铜陵利星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>姚全胜</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>365</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>7</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江华策北控汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>冯运平</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>301</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>8</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>徐州之星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>张浩</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>171</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>9</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海中升之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郑先生</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>159</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>10</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海星瀚汽车维修服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>张云</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>154</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>11</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>台州之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>张会玲</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>151</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>12</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>常州万帮汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郑健</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>147</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>13</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>温州之星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>李凤云</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>141</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>14</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江利星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>汪涛</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>132</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>15</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海中升之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陈建辉</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>114</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>16</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>刁福光</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>111</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>17</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海闵星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>费玉铉</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>103</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>18</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海中升之星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>王先生</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>100</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>19</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江越星汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>郑雪祥</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>92</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>20</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波利之星汽车服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>杨常浩</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>40</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>21</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宜兴市鹏龙汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>钱学东</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>35</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>22</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>常州之星汽车有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>张烨</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>30</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>23</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海东华之星汽车维修服务有限公司宝山分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>伽蓝（集团）股份有限公司</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>29</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>24</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>乐清华星汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>叶存清</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>25</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>25</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>常熟中升之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>金晓六</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>24</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>26</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南京中升之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>单巧珠</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>24</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>27</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海利星汽车维修有限公司延安西路分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>索志飞</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>20</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>28</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海利星汽车维修有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>柯学</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>20</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>29</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>南京江北之星汽车服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>杨晓科</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>16</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>30</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海冠松之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>王先猛</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>16</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>31</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>无锡中升汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>吕其付</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>14</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>32</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海利星汽车维修有限公司延安西路分公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>陈妍</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>14</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>33</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>连云港之星汽车销售有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>连云港佰安通市政工程有限公司</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>10</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>34</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>杭州之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>李猛</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>10</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>35</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>安徽之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>汤丽利</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>9</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>36</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>淮南之星汽车销售服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>刘刚</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>7</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>37</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>浙江之信汽车有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>周秀付</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>3</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>38</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>宁波宁兴新宇汽车销售服务有限公司 </label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>张汶枫</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>39</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海汇之星汽车维修服务有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>夏巍</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='huojiangid'>
+                            <label>40</label>
+                            </td>
+                            <td class='huojiangleft'>
+                                <label>上海利星汽车维修有限公司</label>
+                            </td>
+                            <td class='huojiangright'>
+                            <label>泰辉（南通）针织印染有限公司</label>
+                            </td>
+                            <td class='huojiangvote'>
+                            <label>2</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div id="huojiangreturn"></div>
+    </div>
+    <!--获奖名单-->
+
+    <!--排行榜-->
+    <div id="rankpage">
+        <div class="logo"></div>
+        <div class="rule"></div>
+        <div class="group">
+            <div id="gla" style="position:absolute; bottom:66%;width:49%;height:33%;background-color:#ffd800;opacity:0;"></div>
+            <div id="glc" style="position:absolute; right:0%;width:47%;height:33%;background-color:#ffd800;opacity:0;"></div>
+            <div id="gle" style="position:absolute; left:0%;bottom:30%;width:49%;height:33%;background-color:#ffd800;opacity:0;"></div>
+            <div id="gles" style="position:absolute; right:0%;bottom:29%;width:47%;height:34%;background-color:#ffd800;opacity:0;"></div>
+            <div id="gls" style="position:absolute; right:0%;bottom:0;width:98%;height:27%;background-color:#ffd800;opacity:0;"></div>
+        </div>
+        <div class="rank1return" id="rank1return">
+        </div>
+    </div>
+    <!--排行榜-->
+    <!--排行榜2-->
+    <div id="rankpage2">
+        <div class="rank2bg"></div>
+        <div class="rank2bg1"></div>
+        <div class="logo"></div>
+        <div class="rule"></div>
+        <div class="rank2div">
+            <div class="tab-title">
+                <ul>
+                    <li class="current" id="gla2">GLA</li>
+                    <li class="current" id="glc2">GLC</li>
+                    <li class="current" id="gle2">GLE</li>
+                    <li class="current" id="gles2">GLE s</li>
+                    <li class="current" id="gls2">GLS</li>
+                </ul>
+            </div>
+            <div class="tab-content" >
+                <div class="item" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;display:none" id="glacontent">
+                    <table id="tbinfo">
+                        @{if (ViewBag.votename != null)
+                        {
+                            var i = 0;
+                            foreach (var item in ViewBag.votename)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="/log/test1.jpg" style="max-height:120px;max-width:158px" />
+                                    </td>
+                                    <td style="width:150px;text-align:left">
+                                        <label style="width:20px;height:20px;color:#ffffff">作者：@ViewBag.votename[i].voteName</label>
+                                    </td>
+                                    <td>
+                                        <img src="/Areas/benz/img/rank2xin.png" width="20" height="20"/>@ViewBag.votename[i].voteNamecount
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        }
+                    </table>
+                </div>
+                <div class="item" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;display:none" id="glccontent">
+                    <table id="tbinfo">
+                        @{if (ViewBag.votename != null)
+                            {
+                                var i = 0;
+                                foreach (var item in ViewBag.votename)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="/log/test1.jpg" style="max-height:120px;max-width:158px" />
+                                        </td>
+                                        <td style="width:150px;text-align:left">
+                                            <label style="width:20px;height:20px;color:#ffffff">作者：@ViewBag.votename[i].voteName</label>
+                                        </td>
+                                        <td>
+                                            <img src="/Areas/benz/img/rank2xin.png" width="20" height="20" />@ViewBag.votename[i].voteNamecount
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </table>
+                </div>
+                <div class="item" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;display:none" id="glecontent">
+                    <table id="tbinfo">
+                        @{if (ViewBag.votename != null)
+                            {
+                                var i = 0;
+                                foreach (var item in ViewBag.votename)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="/log/test1.jpg" style="max-height:120px;max-width:158px" />
+                                        </td>
+                                        <td style="width:150px;text-align:left">
+                                            <label style="width:20px;height:20px;color:#ffffff">作者：@ViewBag.votename[i].voteName</label>
+                                        </td>
+                                        <td>
+                                            <img src="/Areas/benz/img/rank2xin.png" width="20" height="20" />@ViewBag.votename[i].voteNamecount
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </table>
+                </div>
+                <div class="item" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;display:none" id="glescontent" >
+                    <table id="tbinfo">
+                        @{if (ViewBag.votename != null)
+                            {
+                                var i = 0;
+                                foreach (var item in ViewBag.votename)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="/log/test1.jpg" style="max-height:120px;max-width:158px" />
+                                        </td>
+                                        <td style="width:150px;text-align:left">
+                                            <label style="width:20px;height:20px;color:#ffffff">作者：@ViewBag.votename[i].voteName</label>
+                                        </td>
+                                        <td>
+                                            <img src="/Areas/benz/img/rank2xin.png" width="20" height="20" />@ViewBag.votename[i].voteNamecount
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </table>
+                </div>
+                <div class="item" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;display:none" id="glscontent">
+                    <table id="tbinfo">
+                        @{if (ViewBag.votename != null)
+                            {
+                                var i = 0;
+                                foreach (var item in ViewBag.votename)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="/log/test1.jpg" style="max-height:120px;max-width:158px" />
+                                        </td>
+                                        <td style="width:150px;text-align:left">
+                                            <label style="width:20px;height:20px;color:#ffffff">作者：@ViewBag.votename[i].voteName</label>
+                                        </td>
+                                        <td>
+                                            <img src="/Areas/benz/img/rank2xin.png" width="20" height="20" />@ViewBag.votename[i].voteNamecount
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="rank2return"></div>
+    </div>
+    <!--排行榜2-->
+    <!--联系我们-->
+    <div id="contactpage">
+        <div class="contactblack"></div>
+        <div class="logo"></div>
+        <div class="bg"></div>
+        <div class="rule"></div>
+        <div class="contactreturn" id="contactreturn"></div>
+        <div>
+            <table class="jointable" style="background-color:#000">
+                <tr>
+                    <td height="8%" style="font-size:25px"><label style="color:#ffffff">联系我们</label></td>
+                </tr>
+                <tr height="5%">
+                    <td>
+                        <select id="province2" class="joinpro" style="width:45%;margin-left:3%;color:#000000">
+                        <option >请选择</option>
+                            <option selected="selected">江苏</option>
+                        </select>
+                        <select id="city2" class="joincity" style="margin-left:51%;width:45%;color:#000000">
+                            <option>请选择</option>
+                            <option selected="selected">常州</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:start;">
+                        <textarea id="dealer2" readonly style="font-size:25px;width:95%;height:79%;margin-bottom:1px;background-color:#000;color:#ffffff;border:0px;overflow-y:scroll; -webkit-overflow-scrolling: touch;"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--联系我们-->
+    <!--未提交信息页-->
+    <div id="p6">
+        <!--<div class="info"></div>-->
+        <div class="p6now"></div>
+        <div class="p6gb"></div>
+    </div>
+    <!--未提交信息页-->
+    <!--活动规则页面-->
+    <div class="ruleback">
+        <div class="ruleback2">
+            <div class="rulediv">
+                <img src="/Areas/benz/img/rulecontent.png" style="width:100%;height:100%;" />
+            </div>
+            <div class="closerule"></div>
+        </div>
+    </div>
+    <!--活动规则页面-->
+</body>
+</html>
+<script>
+    /*************获奖控制***************/
+    $("#hjgla").click(function () {
+        $("#hjgla").css("background-color", "white");
+        $("#hjglc").css("background-color", "white");
+        $("#hjgle").css("background-color", "white");
+        $("#hjgles").css("background-color", "white");
+        $("#hjgls").css("background-color", "white");
+        $(this).css("background-color", "grey");
+        $("#tbinfo1").css("display", "none");
+        $("#tbinfo2").css("display", "none");
+        $("#tbinfo3").css("display", "none");
+        $("#tbinfo4").css("display", "none");
+        $("#tbinfo5").css("display", "none");
+        $("#tbinfo1").css("display", "block");
+    });
+    $("#hjglc").click(function () {
+        $("#hjgla").css("background-color", "white");
+        $("#hjglc").css("background-color", "white");
+        $("#hjgle").css("background-color", "white");
+        $("#hjgles").css("background-color", "white");
+        $("#hjgls").css("background-color", "white");
+        $(this).css("background-color", "grey");
+        $("#tbinfo1").css("display", "none");
+        $("#tbinfo2").css("display", "none");
+        $("#tbinfo3").css("display", "none");
+        $("#tbinfo4").css("display", "none");
+        $("#tbinfo5").css("display", "none");
+        $("#tbinfo2").css("display", "block");
+    });
+    $("#hjgle").click(function () {
+        $("#hjgla").css("background-color", "white");
+        $("#hjglc").css("background-color", "white");
+        $("#hjgle").css("background-color", "white");
+        $("#hjgles").css("background-color", "white");
+        $("#hjgls").css("background-color", "white");
+        $(this).css("background-color", "grey");
+        $("#tbinfo1").css("display", "none");
+        $("#tbinfo2").css("display", "none");
+        $("#tbinfo3").css("display", "none");
+        $("#tbinfo4").css("display", "none");
+        $("#tbinfo5").css("display", "none");
+        $("#tbinfo3").css("display", "block");
+
+    });
+    $("#hjgles").click(function () {
+        $("#hjgla").css("background-color", "white");
+        $("#hjglc").css("background-color", "white");
+        $("#hjgle").css("background-color", "white");
+        $("#hjgles").css("background-color", "white");
+        $("#hjgls").css("background-color", "white");
+        $(this).css("background-color", "grey");
+        $("#tbinfo1").css("display", "none");
+        $("#tbinfo2").css("display", "none");
+        $("#tbinfo3").css("display", "none");
+        $("#tbinfo4").css("display", "none");
+        $("#tbinfo5").css("display", "none");
+        $("#tbinfo4").css("display", "block");
+
+    });
+    $("#hjgls").click(function () {
+        $("#hjgla").css("background-color", "white");
+        $("#hjglc").css("background-color", "white");
+        $("#hjgle").css("background-color", "white");
+        $("#hjgles").css("background-color", "white");
+        $("#hjgls").css("background-color", "white");
+        $(this).css("background-color", "grey");
+        $("#tbinfo1").css("display", "none");
+        $("#tbinfo2").css("display", "none");
+        $("#tbinfo3").css("display", "none");
+        $("#tbinfo4").css("display", "none");
+        $("#tbinfo5").css("display", "none");
+        $("#tbinfo5").css("display", "block");
+
+    })
+    /*************获奖控制***************/
+</script>

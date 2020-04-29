@@ -1,0 +1,565 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Getinfo";
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" id="viewportid" content="target-densitydpi=320,width=640,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="~/Areas/Benz/js/jquery.form.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://share.shougan.com.cn/Share.js"></script>
+    <script src="~/Areas/Benz//js/data.js"></script>
+    <script src="~/Areas/Benz//js/index.js"></script>
+    <script src="~/Areas/Benz/js/exif-js-master/exif.js"></script>
+    <link href="~/Areas/Benz//css/index.css" rel="stylesheet" />
+    <script>
+        ////获取url中的参数
+        function getUrlParam(name) {
+
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return decodeURI(r[2]); return null; //返回参数值
+        }
+        ////是否是微信
+        //function isweixin() {
+        //    var ua = navigator.userAgent.toLowerCase();
+        //    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+        //        return true;
+        //    } else {
+        //        return false;
+        //    }
+        //}
+        //if (!isweixin()) {
+        //    if (getUrlParam("openid") != null) {
+        //        var uid = getUrlParam("openid");
+        //    }
+        //    else {
+        //        // window.location.href = "http://htc.shougan.com.cn/oauth2.aspx?redirect_url=" + encodeURI(window.location.href) + "&scope=snsapi_base";
+        //    }
+        //}
+        //else {
+        //    // window.location.href = "404.html";
+        //}
+        //for (var i = 0; i < province.length; i++) {
+        //    $.ajax({
+        //        //提交数据的类型 POST GET
+        //        type: "POST",
+        //        //提交的网址
+        //        url: "/Benz/Benz/ss",
+        //        cache: false,
+        //        //提交的数据
+        //        data: {
+        //            OwnID: i+1,
+        //            OwnName: province[i].ProName,
+        //            ParentID: 0,
+        //        },
+        //        //返回数据的格式
+        //        datatype: "json",//"xml", "html", "script", "json", "jsonp", "text".
+
+
+        //        //成功返回之后调用的函数
+        //        success: function (data) {
+                   
+        //        },
+
+        //        //调用出错执行的函数
+        //        error: function (e) {
+        //        }
+        //    });
+        //}
+
+        //for (var i = 0; i < city.length; i++) {
+        //    $.ajax({
+        //        //提交数据的类型 POST GET
+        //        type: "POST",
+        //        //提交的网址
+        //        url: "/Benz/Benz/ss",
+        //        cache: false,
+        //        //提交的数据
+        //        data: {
+        //            OwnID: i + 5,
+        //            OwnName: city[i].CityName,
+        //            ParentID: city[i].ProID,
+        //        },
+        //        //返回数据的格式
+        //        datatype: "json",//"xml", "html", "script", "json", "jsonp", "text".
+
+
+        //        //成功返回之后调用的函数
+        //        success: function (data) {
+
+        //        },
+
+        //        //调用出错执行的函数
+        //        error: function (e) {
+        //        }
+        //    });
+        //}
+        //for (var i = 0; i < dealer.length; i++) {
+        //    $.ajax({
+        //        //提交数据的类型 POST GET
+        //        type: "POST",
+        //        //提交的网址
+        //        url: "/Benz/Benz/ss",
+        //        cache: false,
+        //        //提交的数据
+        //        data: {
+        //            OwnID: i + 65,
+        //            OwnName: dealer[i].DisName,
+        //            ParentID: dealer[i].CityID * 1 + 4,
+        //            DisAddress: dealer[i].DisAddress,
+        //            ContactsName: dealer[i].MM,
+        //            Phone: dealer[i].Tel,
+        //            Eamil: dealer[i].Email,
+                    
+        //        },
+        //        //返回数据的格式
+        //        datatype: "json",//"xml", "html", "script", "json", "jsonp", "text".
+
+
+        //        //成功返回之后调用的函数
+        //        success: function (data) {
+
+        //        },
+
+        //        //调用出错执行的函数
+        //        error: function (e) {
+        //        }
+        //    });
+        //}
+    </script>
+    <title></title>
+</head>
+
+<body>
+    <!--横屏提示-->
+    <div class="hpts">
+        <div class="crossscreen"></div>
+    </div>
+    <!--横屏提示-->
+    <!--页面整体Loading-->
+    <div style="height:100%;width:100%;position:absolute;z-index:10000;display:none;" id="loadinggif">
+        <div style="height:100%;width:100%;position:absolute;background-color:#000;opacity:0.4;">
+        </div>
+        <img class="loadinggif" src="/Areas/benz/img/loading2.gif" />
+    </div>
+    <!--页面整体Loading-->
+
+
+    <!--Loading-->
+    <div class="loading">
+        <div class="logo"></div>
+        <div class="loadingcemara"></div>
+        <div class="loading_div"></div>
+        <div class="loadingline" style="display:none">
+            <div class="loadingline2"></div>
+        </div>
+    </div>
+    <!--Loading-->
+    <!--首页-->
+    <div id="p1" class="index123">
+        <div class="bg"></div>
+        <div class="logo"></div>
+        <div class="p1t"></div>
+        <div class="up"></div>
+        <div class="camera"></div>
+    </div>
+    <!--首页-->
+    <!--视频页-->
+    <div id="p2">
+        <div class="mainbg"></div>
+        <div class="p2black"></div>
+        <div class="logo"></div>
+        <!--<div class="icon"></div>-->
+        <div class="p2v" >
+            <video controls="controls" style="position:absolute; width: 100%; height: 100%; left: 0; top: 0; background-image:url(../../Areas/Benz/img/video.png);background-size:cover" src="/Areas/benz/img/v2.mp4" id="video"></video>
+        </div>
+        <div class="p2v2">
+            <div class="p2rule"></div>
+        </div>
+        <div class="p2font1" id="myprobtn"></div><br />
+        <div class="p2font2" id="joinbtn"></div><br />
+        <div class="p2font3" id="rankbtn"></div><br />
+        <div class="p2font4" id="contactbtn"></div>
+    </div>
+    <!--视频页-->
+    <div id="joined">
+        <div class="myproreturn" id="joinedreturn"></div>
+    </div>
+    <!--我的作品页-->
+    <div id="mypropage">
+        <div class="myproblack"></div>
+        <div class="rule"></div>
+        <div class="logo"></div>
+        <!--<div class="icon"></div>-->
+        <div class="myproi">
+            <label class="username"></label>
+            <div class="mypropagei2"></div>
+            <label class="votenum"></label>
+            <div class="mypropagei3" id="tp"></div>
+            <div class="mypropagei4"></div>
+        </div>
+        <div class="myproreturn" id="myproreturn"></div>
+        <div class="myproreturn" id="myproreturn2" hidden></div>
+        <div class="myprodiv" style="max-height:96%;max-height:96%">
+            <div id="getborder">
+            <img src="" style="margin:10px 10px 10px 10px;max-width:96%;max-height:96%;border:3px solid #ffffff" id="mypropic" />
+            </div>
+                <!--<div class="mypropagei1"></div>-->
+        </div>
+        <div class="share">
+            <div class="share1"></div>
+        </div>
+    </div>
+    <div id="joinisnull">
+        <div class="myproreturn" id="isnullreturn"></div>
+    </div>
+    <!--我的作品页-->
+    <!--参加活动-->
+    <div id="joinpage">
+        <div class="logo"></div>
+        <div class="rule"></div>
+        <!--<div class="icon"></div>-->
+        <table class="jointable">
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td height="20"><label style="color:#ffffff;font-size:35px; ">报名参与：</label></td>
+            </tr>
+            <tr>
+                <td height="13"><label style="color:#ffffff;font-size:20px;">2016梅赛德斯-奔驰东区摄影大赛第二季</label></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td height="13">
+                    <label class="jointdfont2">姓名：</label>
+                    <input type="text" id="name" class="joinname" />
+                    <img src="/Areas/benz/img/star.png" style="margin-left:70%" />
+                </td>
+            </tr>
+            <tr>
+                <td height="1">
+                    <img src="/Areas/benz/img/line.png" />
+                </td>
+            </tr>
+            <tr>
+                <td height="13">
+                    <label class="jointdfont2">电话：</label>
+                    <input id="tel" type="text" maxlength="11" class="jointel" />
+                    <img src="/Areas/benz/img/star.png" style="margin-left:70%" />
+                </td>
+            </tr>
+            <tr>
+                <td height="1">
+                    <img src="/Areas/benz/img/line.png" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="jointdfont2">省份：</label>
+                    <select id="province" class="joinpro ">
+                        <option selected="selected">请选择</option>
+                    </select>
+                    <img src="/Areas/benz/img/star.png" style="margin-left:23%" />
+                    <label style="margin-left:1%">
+                        <label class="jointdfont2">城市：</label>
+                    </label>
+                    <select id="city" class="joincity ">
+                        <option selected="selected">请选择</option>
+                    </select>
+                    <img src="/Areas/benz/img/star.png" style="margin-left:23%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="jointdfont2">购车经销商：</label>
+                    <select id="dealer" class="joindealer ">
+                        <option selected="selected">请选择</option>
+                    </select>
+                    <img src="/Areas/benz/img/star.png" style="margin-left:52%" />
+                </td>
+            </tr>
+            <tr>
+                <td height="1"></td>
+            </tr>
+            <tr>
+                <td height="9">
+                    <label class="jointdfont2">车架号：</label>
+                    <input id="vin" type="text" maxlength="17" class="jointel" />
+                    <img src="/Areas/benz/img/star.png" style="margin-left:58%" />
+                </td>
+            </tr>
+            <tr>
+                <td height="1">
+                    <img src="/Areas/benz/img/line.png" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="jointdfont2">参赛组别：</label>
+                    <select class="joingroup" id="group">
+                        <option>GLA</option>
+                        <option>GLC</option>
+                        <option>GLE</option>
+                        <option value="gles">GLE s</option>
+                        <option>GLS</option>
+                    </select>
+                    <img src="/Areas/benz/img/star.png" style="padding-left:31%" />
+                </td>
+            </tr>
+            <tr>
+                <td height="65px">
+                    <label class="jointdfont2" style="vertical-align:central">上传参赛作品：</label>
+                    <img style="background-color:#928d8d;height:80%;width:8%;display:none" id="pic"  src=""/>
+                    <label class="submitpicbtn" style="color:#ffffff;font-size:23px;" id="submitpicbtn"><u>上传</u></label>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center"><label style="color:#ffffff;font-size:23px" id="label">(*为必填信息)</label></td>
+            </tr>
+        </table>
+        
+        <div class="joindiv2">
+            <label style="color:#ff0000;margin-left:36%;font-size: 18px;" id="tips"></label>
+            <div class="joinsubmit" id="joinsubmit"></div>
+            <div class="joinreturn" id="joinreturn"></div>
+        </div>
+        <div class="submitsuccess">
+            <div class="myproreturn" id="submitsuccessreturn"></div>
+        </div>
+        <!--<div class="jointextdiv">
+            <div style="top:23%;"><input class="joinnametext" /></div>
+        </div>-->
+    </div>
+    <!--参加活动-->
+    <!--参加活动提交图片页面-->
+    <div id="submitpicpage">
+        <div class="picdiv" id="img_1">
+            <form id="UpLoadForm" name="UpLoadForm" method="post" enctype="multipart/form-data"
+                  action="/UploadFile.ashx">
+                <div class="upload">
+                    <input type="file" name="e" style=" height:140px;opacity:0" id="picPath" onchange="UploadFile(this)" />
+                </div>
+            </form>
+            <img id="cszp" src="" style="width:100%;border:3px solid #ffffff;display:none;max-height:640px;"/>
+        </div>
+        <div class="joindiv2">
+            <label style="color:#ffffff;margin-left:40%;font-size:20px" id="tips2"></label>
+            <div class="picsubmit" id="picsubmit"></div>
+            <div class="picreturn" id="picreturn"></div>
+            @*<input type="button" id="xz" value="旋转" />*@
+        </div>
+        <div id="xz">
+        </div>
+    </div>
+    <!--参加活动提交图片页面-->
+    <!--排行榜-->
+    <div id="rankpage">
+        <div class="logo"></div>
+        <div class="rule"></div>
+        <div class="group">
+            <div id="gla" style="position:absolute; bottom:66%;width:49%;height:33%;background-color:#ffd800;opacity:0;"></div>
+            <div id="glc" style="position:absolute; right:0%;width:47%;height:33%;background-color:#ffd800;opacity:0;"></div>
+            <div id="gle" style="position:absolute; left:0%;bottom:30%;width:49%;height:33%;background-color:#ffd800;opacity:0;"></div>
+            <div id="gles" style="position:absolute; right:0%;bottom:29%;width:47%;height:34%;background-color:#ffd800;opacity:0;"></div>
+            <div id="gls" style="position:absolute; right:0%;bottom:0;width:98%;height:27%;background-color:#ffd800;opacity:0;"></div>
+        </div>
+        <div class="rank1return" id="rank1return">
+        </div>
+    </div>
+    <!--排行榜-->
+    <!--排行榜2-->
+    <div id="rankpage2">
+        <div class="rank2bg"></div>
+        <div class="rank2bg1"></div>
+        <div class="logo"></div>
+        <div class="rule"></div>
+        <div class="rank2div">
+            <div class="tab-title">
+                <ul>
+                    <li class="current" id="gla2">GLA</li>
+                    <li class="current" id="glc2">GLC</li>
+                    <li class="current" id="gle2">GLE</li>
+                    <li class="current" id="gles2">GLE s</li>
+                    <li class="current" id="gls2">GLS</li>
+                </ul>
+            </div>
+            <div class="tab-content" >
+                <div class="item" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;display:none" id="glacontent">
+                    <table id="tbinfo">
+                        @{if (ViewBag.votename != null)
+                        {
+                            var i = 0;
+                            foreach (var item in ViewBag.votename)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="/log/test1.jpg" style="max-height:120px;max-width:158px" />
+                                    </td>
+                                    <td style="width:150px;text-align:left">
+                                        <label style="width:20px;height:20px;color:#ffffff">作者：@ViewBag.votename[i].voteName</label>
+                                    </td>
+                                    <td>
+                                        <img src="/Areas/benz/img/rank2xin.png" width="20" height="20"/>@ViewBag.votename[i].voteNamecount
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        }
+                    </table>
+                </div>
+                <div class="item" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;display:none" id="glccontent">
+                    <table id="tbinfo">
+                        @{if (ViewBag.votename != null)
+                            {
+                                var i = 0;
+                                foreach (var item in ViewBag.votename)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="/log/test1.jpg" style="max-height:120px;max-width:158px" />
+                                        </td>
+                                        <td style="width:150px;text-align:left">
+                                            <label style="width:20px;height:20px;color:#ffffff">作者：@ViewBag.votename[i].voteName</label>
+                                        </td>
+                                        <td>
+                                            <img src="/Areas/benz/img/rank2xin.png" width="20" height="20" />@ViewBag.votename[i].voteNamecount
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </table>
+                </div>
+                <div class="item" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;display:none" id="glecontent">
+                    <table id="tbinfo">
+                        @{if (ViewBag.votename != null)
+                            {
+                                var i = 0;
+                                foreach (var item in ViewBag.votename)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="/log/test1.jpg" style="max-height:120px;max-width:158px" />
+                                        </td>
+                                        <td style="width:150px;text-align:left">
+                                            <label style="width:20px;height:20px;color:#ffffff">作者：@ViewBag.votename[i].voteName</label>
+                                        </td>
+                                        <td>
+                                            <img src="/Areas/benz/img/rank2xin.png" width="20" height="20" />@ViewBag.votename[i].voteNamecount
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </table>
+                </div>
+                <div class="item" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;display:none" id="glescontent" >
+                    <table id="tbinfo">
+                        @{if (ViewBag.votename != null)
+                            {
+                                var i = 0;
+                                foreach (var item in ViewBag.votename)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="/log/test1.jpg" style="max-height:120px;max-width:158px" />
+                                        </td>
+                                        <td style="width:150px;text-align:left">
+                                            <label style="width:20px;height:20px;color:#ffffff">作者：@ViewBag.votename[i].voteName</label>
+                                        </td>
+                                        <td>
+                                            <img src="/Areas/benz/img/rank2xin.png" width="20" height="20" />@ViewBag.votename[i].voteNamecount
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </table>
+                </div>
+                <div class="item" style="overflow-y:scroll;-webkit-overflow-scrolling:touch;display:none" id="glscontent">
+                    <table id="tbinfo">
+                        @{if (ViewBag.votename != null)
+                            {
+                                var i = 0;
+                                foreach (var item in ViewBag.votename)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="/log/test1.jpg" style="max-height:120px;max-width:158px" />
+                                        </td>
+                                        <td style="width:150px;text-align:left">
+                                            <label style="width:20px;height:20px;color:#ffffff">作者：@ViewBag.votename[i].voteName</label>
+                                        </td>
+                                        <td>
+                                            <img src="/Areas/benz/img/rank2xin.png" width="20" height="20" />@ViewBag.votename[i].voteNamecount
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="rank2return"></div>
+    </div>
+    <!--排行榜2-->
+    <!--联系我们-->
+    <div id="contactpage">
+        <div class="contactblack"></div>
+        <div class="logo"></div>
+        <div class="bg"></div>
+        <div class="rule"></div>
+        <div class="contactreturn" id="contactreturn"></div>
+        <div>
+            <table class="jointable" style="background-color:#000">
+                <tr>
+                    <td height="8%" style="font-size:25px"><label style="color:#ffffff">联系我们</label></td>
+                </tr>
+                <tr height="5%">
+                    <td>
+                        <select id="province2" class="joinpro" style="width:45%;margin-left:3%;color:#000000">
+                        <option >请选择</option>
+                            <option selected="selected">江苏</option>
+                        </select>
+                        <select id="city2" class="joincity" style="margin-left:51%;width:45%;color:#000000">
+                            <option>请选择</option>
+                            <option selected="selected">常州</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:start;">
+                        <textarea id="dealer2" readonly style="font-size:25px;width:95%;height:79%;margin-bottom:1px;background-color:#000;color:#ffffff;border:0px;overflow-y:scroll; -webkit-overflow-scrolling: touch;"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--联系我们-->
+    <!--未提交信息页-->
+    <div id="p6">
+        <!--<div class="info"></div>-->
+        <div class="p6now"></div>
+        <div class="p6gb"></div>
+    </div>
+    <!--未提交信息页-->
+    <!--活动规则页面-->
+    <div class="ruleback">
+        <div class="ruleback2">
+            <div class="rulediv">
+                <img src="/Areas/benz/img/rulecontent.png" style="width:100%;height:100%;" />
+            </div>
+            <div class="closerule"></div>
+        </div>
+    </div>
+    <!--活动规则页面-->
+</body>
+</html>

@@ -1,0 +1,1248 @@
+﻿/**********************************全局************************************/
+body {
+    color: #000;
+    font-family: 'Microsoft YaHei';
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    max-width: 640px;
+    text-align: center;
+    background-color: #e0e0e0;
+}
+
+div {
+    border: 0;
+}
+
+ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.rule {
+    width: 78px;
+    height: 30px;
+    position: absolute;
+    right: 50px;
+    bottom: 35px;
+    background: url(../img/rule.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.closerule {
+    position: absolute;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    width: 14%;
+    height: 10%;
+    top: 2%;
+    right: 1%;
+    opacity: 1;
+}
+
+.jxs {
+    width: 69px;
+    height: 23px;
+    position: absolute;
+    right: 115px;
+    bottom: 36px;
+    background: url(../img/jxs.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.logo {
+    width: 248px;
+    height: 64px;
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    background: url(../img/logo.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.icon {
+    width: 66px;
+    height: 66px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: url(../img/icon.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.info {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 35px;
+    right: 30px;
+    background: url(../img/info.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.up {
+    position: absolute;
+    width: 55px;
+    height: 30px;
+    bottom: 20px;
+    left: 292px;
+    background: url(../img/up.png) no-repeat;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -webkit-animation: up 1s infinite linear;
+    animation: up 1s infinite linear;
+}
+
+.mainbg {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/p1bg.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/bg.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+}
+
+@-webkit-keyframes up {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, -20px, 0);
+        transform: translate3d(0, -20px, 0);
+        opacity: 0;
+    }
+}
+
+@keyframes up {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, -20px, 0);
+        transform: translate3d(0, -20px, 0);
+        opacity: 0;
+    }
+}
+/**********************************全局************************************/
+
+/**********************************Loading************************************/
+.loading {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background-color:#000;
+    /*background: url(../img/loadingback.png) no-repeat bottom;*/
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+
+}
+
+.loading_div {
+    width: 46px;
+    height: 100px;
+    top: 54%;
+    left: 46%;
+    position: absolute;
+    font-size: 20px;
+    line-height: 25px;
+    font-style: italic;
+    font-family: SimHei;
+    color: #ffffff;
+}
+
+.loadingcemara {
+    width: 148px;
+    height: 123px;
+    top: 36%;
+    left: 40%;
+    position: absolute;
+    line-height: 50px;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/loadingcemara.png) no-repeat;
+}
+
+.loadingline {
+    border-radius: 3px 4px;
+    border: 1px solid #ffffff;
+    width: 270px;
+    height: 5px;
+    top: 52%;
+    left: 30%;
+    background-color: #000;
+    position: absolute;
+}
+
+.loadingline2 {
+    border-radius: 3px 4px;
+    border: 1px solid #ffffff;
+    height: 100%;
+    left: 0;
+    background-color: #ffffff;
+    position: absolute;
+}
+
+/**********************************Loading************************************/
+/**********************************第一页（首页）************************************/
+#p1 {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/p1bg.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+}
+
+.p1t {
+    position: absolute;
+    width: 561px;
+    height: 195px;
+    background: url(../img/p1bt.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.camera {
+    position: absolute;
+    width: 34%;
+    height: 33%;
+    right: 0;
+    bottom: 0;
+    background: url(../img/camera.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+/**********************************第一页（首页）************************************/
+
+/**********************************第二页（视频页）************************************/
+#p2 {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    background: no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+    position: absolute;
+}
+
+.p2black {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/p1black.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+}
+
+.p2v {
+    border:3px solid #ccc;
+    border-radius:3px 4px;
+    position: absolute;
+    background: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.p2v2 {
+    position: absolute;
+    background: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.p2rule {
+    width: 78px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    background: url(../img/p2rule.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.p2jxs {
+    width: 83px;
+    height: 23px;
+    position: absolute;
+    right: 50px;
+    bottom: 35px;
+    background: url(../img/p2jxs.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.p2font1 {
+    position: absolute;
+    width: 291px;
+    height: 73px;
+    top: 57%;
+    left: 26%;
+    background: url(../img/p2font1.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.p2font2 {
+    position: absolute;
+    width: 291px;
+    height: 73px;
+    top: 65%;
+    left: 26%;
+    background: url(../img/p2font2.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+/*.p2font21 {
+    position: absolute;
+    width: 291px;
+    height: 73px;
+    top: 65%;
+    left: 26%;
+    background: url(../img/p2font21.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}*/
+
+.p2font5 {
+    position: absolute;
+    width: 291px;
+    height: 73px;
+    top: 65%;
+    left: 26%;
+    background: url(../img/p2font5.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.p2font3 {
+    position: absolute;
+    width: 291px;
+    height: 73px;
+    top: 74%;
+    left: 26%;
+    background: url(../img/p2font3.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.p2font4 {
+    position: absolute;
+    width: 291px;
+    height: 3%;
+    top: 83%;
+    left: 26%;
+    background: url(../img/p2font4.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.p2t {
+    position: absolute;
+    background: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+#joined {
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/joined.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+}
+/**********************************第二页（视频页）************************************/
+
+/**********************************作品页************************************/
+#mypropage {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    background: url(../img/mypro.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+    position: absolute;
+}
+
+.myproi {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.myproblack {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/myproblack.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+}
+
+.username {
+    font-size: 30px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    text-align: center;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    position: absolute;
+    color: #ffffff;
+}
+
+.votenum {
+    font-size: 29px;
+    bottom: -5px;
+    left: 30%;
+    width: 30%;
+    text-align: right;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    position: absolute;
+    color: #ffffff;
+}
+
+.mypropagei1 {
+    bottom: 0px;
+    left: 2;
+    width: 100%;
+    height: 5%;
+    background: url(../img/myproi1.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    position: absolute;
+}
+
+.mypropagei2 {
+    bottom: 0px;
+    left: 62%;
+    width: 7%;
+    height: 30%;
+    max-height: 35px;
+    max-width: 23px;
+    background: url(../img/myproi2.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    position: absolute;
+}
+
+.mypropagei3 {
+    width: 26%;
+    height: 30%;
+    bottom: 0;
+    left: 0;
+    max-height: 35px;
+    max-width: 102px;
+    background: url(../img/myproi3.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    position: absolute;
+}
+
+.mypropagei4 {
+    width: 26%;
+    height: 30%;
+    bottom: 0px;
+    right: 0px;
+    max-height: 35px;
+    max-width: 95px;
+    background: url(../img/myproi4.png) no-repeat bottom;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    position: absolute;
+}
+
+.mypropagejoin {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    background: url(../img/myprojoin.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+    position: absolute;
+}
+
+.myproreturn {
+    width: 180px;
+    height: 40px;
+    position: ABSOLUTE;
+    bottom: 6%;
+    left: 231px;
+    background: url(../img/returnbtn.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-animation: myproreturn 1s infinite linear;
+    animation: myproreturn 1s infinite linear;
+}
+
+.myprodiv {
+    text-align: center;
+    border: 0px solid #ffffff;
+    width: 60%;
+    height: 625px;
+    max-width: 640px;
+    position: absolute;
+    background: no-repeat bottom;
+    top: 14%;
+    left: 19%;
+    /*margin: -182px auto 0 auto;*/
+}
+
+#joinisnull {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/joinisnull.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+}
+/***********************分享********************/
+.share {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/rankblack.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+}
+
+.share1 {
+    width: 100%;
+    height: 60%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/share1.png) no-repeat top;
+}
+/***********************分享********************/
+
+/**********************************作品页************************************/
+
+/**********************************参加活动页************************************/
+#joinpage {
+    width: 100%;
+    max-width: 640px;
+    background: url(../img/joinblack.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+    position: absolute;
+}
+
+.joindiv2 {
+    text-align: left;
+    border: 0px solid #808080;
+    max-width: 640px;
+    position: absolute;
+    background: no-repeat bottom;
+}
+
+#joinpagein {
+    border: 2px solid;
+    width: 80%;
+    height: 60%;
+    max-width: 640px;
+    position: absolute;
+    background: no-repeat bottom;
+    top: 16%;
+    left: 10%;
+}
+
+.jointable {
+    text-align: left;
+    border: 1px solid #808080;
+    width: 80%;
+    height: 60%;
+    max-width: 640px;
+    position: absolute;
+    background: no-repeat bottom;
+    top: 16%;
+    left: 10%;
+}
+
+.jointextdiv {
+    top: 154px;
+    left: 45px;
+    width: 549px;
+    height: 740px;
+    max-width: 640px;
+    position: absolute;
+    border: 2px solid #e0e0e0;
+}
+
+.jointext {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/jointext.png) no-repeat bottom;
+}
+
+.joinnametext {
+    padding: 0;
+    position: absolute;
+    font-size: 25px;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.jointdfont2 {
+    color: #ffffff;
+    font-size: 23px;
+}
+
+.joinreturn {
+    width: 30%;
+    height: 70%;
+    left: 10%;
+    position: ABSOLUTE;
+    background: url(../img/joinreturn.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.picreturn {
+    width: 30%;
+    height: 70%;
+    left: 10%;
+    position: ABSOLUTE;
+    background: url(../img/picreturn.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.joinsubmit {
+    width: 30%;
+    height: 70%;
+    right: 10%;
+    position: ABSOLUTE;
+    background: url(../img/submit.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.picsubmit {
+    width: 30%;
+    height: 70%;
+    right: 10%;
+    position: ABSOLUTE;
+    background: url(../img/save.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+
+.joinname {
+    padding: 0;
+    position: absolute;
+    font-size: 25px;
+    border: 0px;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.joinsex {
+    padding: 0;
+    font-family: #fff;
+    position: absolute;
+    font-size: 25px;
+    border: 0;
+    opacity: 0;
+}
+
+.jointel {
+    padding: 0;
+    position: absolute;
+    font-size: 25px;
+    background-color: transparent;
+    border: 0;
+    color: #ffffff;
+}
+
+.joinpro {
+    padding: 0;
+    width: 22%;
+    position: absolute;
+    font-size: 21px;
+}
+
+.joincity {
+    padding: 0;
+    width: 22%;
+    position: absolute;
+    font-size: 21px;
+}
+
+.joindealer {
+    padding: 0;
+    width: 51%;
+    position: absolute;
+    font-size: 21px;
+}
+
+.joingroup {
+    padding: 0;
+    width: 30%;
+    position: absolute;
+    font-size: 20px;
+}
+
+
+.submitsuccess {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/submitsuccess.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+}
+/**********************************参加活动页************************************/
+/**********************************提交图片************************************/
+#submitpicpage {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    background: url(../img/joinblack.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+    position: absolute;
+}
+
+.picdiv {
+    text-align: center;
+    right: 17%;
+    bottom: 30%;
+    border: 2px solid #e0e0e0;
+    width: 62%;
+    height: 63%;
+    max-width: 640px;
+    position: absolute;
+    background: no-repeat bottom;
+}
+
+#submitpicbtn2 {
+    width: 270px;
+    height: 60px;
+    position: ABSOLUTE;
+    bottom: 6%;
+    left: 190px;
+    background: url(../img/joinsubmit.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.upload {
+    margin-top: 150px;
+    height: 155px;
+    background: url(../img/upload.png) no-repeat bottom;
+}
+
+#xz {
+    width: 37px;
+    height: 47px;
+    position: ABSOLUTE;
+    top: 6%;
+    right: 5%;
+    background: url(../img/imgrotate.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.loadinggif {
+    position: Relative;
+    top: 50%;
+    width: 54px;
+    margin: -27px auto 0 auto;
+}
+/**********************************提交图片************************************/
+
+/**********************************排行榜页************************************/
+#rankpage {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    background: no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+    position: absolute;
+    background-color: #000;
+}
+
+#rankpage2 {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    background: no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+    position: absolute;
+}
+
+.rankblack {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/rankblack.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+}
+
+.group {
+    max-width: 640px;
+    background: url(../img/group.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+}
+
+.rank1return {
+    width: 180px;
+    height: 40px;
+    position: ABSOLUTE;
+    bottom: 6%;
+    left: 231px;
+    background: url(../img/returnbtn.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-animation: myproreturn 1s infinite linear;
+    animation: myproreturn 1s infinite linear;
+}
+/**********************************排行榜页************************************/
+/**********************************排行榜TAB页************************************/
+.rank2xin {
+    background: url(../img/rank2xin.png) no-repeat bottom;
+}
+
+.rank2bg {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/p1bg.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+}
+
+.rank2bg1 {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/rank2bg1.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+}
+
+.rank2bg2 {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/rank2bg2.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+}
+
+#rank2return {
+    width: 180px;
+    height: 40px;
+    position: ABSOLUTE;
+    bottom: 6%;
+    left: 231px;
+    background: url(../img/returnbtn.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-animation: rank2return 1s infinite linear;
+    animation: rank2return 1s infinite linear;
+}
+#huojiangreturn {
+    width: 180px;
+    height: 40px;
+    position: ABSOLUTE;
+    bottom: 6%;
+    left: 231px;
+    background: url(../img/returnbtn.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-animation: rank2return 1s infinite linear;
+    animation: rank2return 1s infinite linear;
+}
+
+.rank2div {
+    /*border: 4px solid #ffffff;*/
+    max-width: 640px;
+    position: absolute;
+    background: no-repeat bottom;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.tab-title {
+    width: 100%;
+    float: left;
+    border-radius: 3px 4px;
+}
+    /*非当前点击*/
+    .tab-title li {
+        border: 0px #ccc solid;
+        list-style-type: none;
+        float: left;
+        width: 19%;
+        height: 30px;
+        background-color: #808080;
+        text-align: center;
+        border-radius: 3px 4px 0px 0px;
+    }
+        /*当前点击*/
+        .tab-title li.current {
+            border: 0px #ccc solid;
+            font-family: #e0e0e0;
+            background-color: #fff;
+            width: 20%;
+            height: 35px;
+            text-align: center;
+        }
+
+.tab-content {
+    width: 100%;
+    float: left;
+}
+
+ .tab-content .item {
+        background: url(../img/rank2bg2.png) no-repeat;
+        position: absolute;
+        border: 0px #ccc solid;
+        float: left;
+        width: 98%;
+        text-align: center;
+        line-height: 20px;
+        font-family: #fff;
+        height: 93%;
+        /*overflow-y:scroll;
+        -webkit-overflow-scrolling:touch;*/
+    }
+
+a {
+    text-decoration: none;
+}
+
+    a:focus {
+        outline-style: none;
+        -moz-outline-style: none;
+    }
+/**********************************排行榜TAB页************************************/
+/**********************************联系我们页************************************/
+#contactpage {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    background: url(../img/p1bg.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+    position: absolute;
+}
+
+.contactblack {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    background: url(../img/contactblack.png) no-repeat bottom;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+}
+
+.contactreturn {
+    width: 180px;
+    height: 40px;
+    position: ABSOLUTE;
+    bottom: 6%;
+    left: 231px;
+    background: url(../img/contactreturn.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-animation: contactreturn 1s infinite linear;
+    animation: contactreturn 1s infinite linear;
+}
+
+.contactpro {
+    padding: 0;
+    position: absolute;
+    top: 541px;
+    left: 306px;
+    text-align: center;
+    width: 91px;
+    height: 30px;
+    font-size: 21px;
+}
+
+.contactcity {
+    padding: 0;
+    position: absolute;
+    top: 541px;
+    left: 425px;
+    text-align: center;
+    width: 91px;
+    height: 30px;
+    font-size: 21px;
+}
+
+.contactdealer {
+    padding: 0;
+    position: absolute;
+    top: 577px;
+    left: 360px;
+    text-align: center;
+    width: 192px;
+    height: 30px;
+    font-size: 21px;
+}
+/**********************************联系我们页************************************/
+
+/**********************************活动规则************************************/
+.ruleback {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    position: absolute;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+    display: none;
+}
+
+.ruleback2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url(../img/p1black.png) no-repeat;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+}
+
+.rulecontent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url(../img/rulecontent.png) no-repeat;
+    -webkit-background-size: 640px 1136px;
+    background-size: 640px 1136px;
+}
+
+.rulediv {
+    max-width: 640px;
+    background: no-repeat;
+    position: absolute;
+}
+
+/**********************************活动规则************************************/
+
+
+
+/**********************************第三页（选择地区）************************************/
+/*旋转*/
+@-webkit-keyframes rotatel {
+    0% {
+        opacity: 1;
+        -webkit-transform: rotate(0deg) scale3d(1, 1, 1);
+        transform: rotate(0deg) scale3d(1, 1, 1);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: rotate(360deg) scale3d(1.2, 1.2, 1.2);
+        transform: rotate(360deg) scale3d(1.2, 1.2, 1.2);
+    }
+}
+
+@keyframes rotatel {
+    0% {
+        opacity: 1;
+        -webkit-transform: rotate(0deg) scale3d(1, 1, 1);
+        transform: rotate(0deg) scale3d(1, 1, 1);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: rotate(360deg) scale3d(1.2, 1.2, 1.2);
+        transform: rotate(360deg) scale3d(1.2, 1.2, 1.2);
+    }
+}
+
+.rotater {
+    -webkit-animation: rotater 2s infinite linear;
+    animation: rotater 2s infinite linear;
+}
+/*旋转*/
+@-webkit-keyframes rotater {
+    0% {
+        opacity: 1;
+        -webkit-transform: rotate(0deg) scale3d(1, 1, 1);
+        transform: rotate(0deg) scale3d(1, 1, 1);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: rotate(-360deg) scale3d(1.2, 1.2, 1.2);
+        transform: rotate(-360deg) scale3d(1.2, 1.2, 1.2);
+    }
+}
+
+@keyframes rotater {
+    0% {
+        opacity: 1;
+        -webkit-transform: rotate(0deg) scale3d(1, 1, 1);
+        transform: rotate(0deg) scale3d(1, 1, 1);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: rotate(-360deg) scale3d(1.2, 1.2, 1.2);
+        transform: rotate(-360deg) scale3d(1.2, 1.2, 1.2);
+    }
+}
+/**********************************第三页（选择地区）************************************/
+
+/**********************************横屏提示************************************/
+.gbindex {
+    width: 56px;
+    height: 84px;
+    bottom: 23px;
+    right: 25px;
+    display: none;
+    z-index: 999999;
+    position: absolute;
+    background: url(../img/index.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.hpts {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    z-index: 30;
+    display: none;
+}
+
+.crossscreen {
+    position: relative;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    border: 0;
+    background: url(../img/crossscreen.png) no-repeat bottom;
+    background-size: 100% 100%;
+}
+/**********************************横屏提示************************************/
+
+
+
+/*获奖页*/
+#huojiang {
+    font-size: 25px;
+    color:white;
+    color:#ffffff;
+}
+
+    #huojiang div {
+        line-height: 30px;
+    }
+
+        #huojiang div table th, td {
+            /*border: 1px solid grey;*/
+        }
+
+.huojiangleft {
+    text-align: left;
+    width: 75%;
+}
+
+.huojiangright {
+    text-align: right;
+    width: 25%;
+}
+
+.huojiangid {
+    text-align: left;
+    width: 2%;
+}
+
+.huojiangvote {
+    text-align: right;
+    width: 5%;
+}
+/*#huojiang label {
+    width:20px;
+    height:20px;
+    color:#ffffff;
+}*/
+/*.huojiangscroll {
+    overflow-y:scroll;
+    -webkit-overflow-scrolling:touch;
+}*/
+#huojiang tr td:first-child {
+font-size:24px;
+}
+#tabinfo1 {
+display:none
+}
+#tabinfo2 {
+display:none;
+}
+#tabinfo3 {
+display:none
+}
+#tabinfo4 {
+display:none
+}
+#tabinfo5 {
+display:none
+}

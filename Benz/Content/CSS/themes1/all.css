@@ -1,0 +1,36 @@
+﻿@import "buttom.css";
+@import "jquery.fancybox.css";
+@import "table.css";
+ 
+ 
+ select  {
+     border: 1px solid #ccc; height: 24px!important;width: 180px;color: #333;
+    }
+ input[type="text"]
+    {
+     border: 1px solid #ccc; height: 24px;width: 180px;color: #333; line-height:24px;
+    }
+
+    input[type="password"]
+    {
+
+    border: 1px solid #ccc;height: 17px;
+        height: 22px;width: 180px;
+color: #333;
+    }
+     
+   .input  td{
+           border: 0px solid #ff0000;
+   }
+
+   input[type="radio"]
+    {
+        border: 1px solid #ccc; height: 24px;width: 180px;color: #333;
+    }
+
+   
+
+    input[type="checkbox"]
+    {
+        border: 1px solid #ccc; height: 24px;width: 180px;color: #333;
+    }

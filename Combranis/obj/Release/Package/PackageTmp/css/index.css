@@ -1,0 +1,288 @@
+﻿/**********************************全局************************************/
+body {
+    color: #000;
+    font-family: 'Microsoft YaHei';
+    border: 0;
+    margin: 0 auto;
+    padding: 0;
+    width: 640px;
+    max-width: 640px;
+    text-align: center;
+    overflow: hidden;
+}
+
+div {
+    border: 0;
+}
+
+ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#body {
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+}
+
+.tosc {
+    -webkit-animation: tosc 0.5s 1 ease-in-out forwards;
+    animation: tosc 0.5s 1 ease-in-out forwards;
+}
+
+@-webkit-keyframes tosc {
+    0% {
+        right: 0px;
+        bottom: 0px;
+    }
+
+    100% {
+        right:-110px;
+        bottom: -100px;
+    }
+
+}
+
+@keyframes tosc {
+    0% {
+        right: 0px;
+        bottom: 0px;
+    }
+
+    100% {
+        right: -110px;
+        bottom: -100px;
+    }
+        /*100% {
+        right:1%;
+        bottom:-0.1%;
+    }*/
+}
+
+.untosc {
+    -webkit-animation: untosc 0.5s 1 ease-in-out forwards;
+    animation: untosc 0.5s 1 ease-in-out forwards;
+}
+
+@-webkit-keyframes untosc {
+    100% {
+        right: 0px;
+        bottom: 0px;
+    }
+
+    0% {
+        right: -110px;
+        bottom: -100px;
+    }
+
+}
+
+@keyframes untosc {
+    100% {
+        right: 0px;
+        bottom: 0px;
+    }
+    /*0% {
+        right: 0%;
+        bottom: 0%;
+    }*/
+    0% {
+        right: -110px;
+        bottom: -100px;
+    }
+}
+
+#up {
+    width: 32px;
+    height: 16px;
+    left: 304px;
+    bottom: 50px;
+    z-index: 8;
+    position: absolute;
+    background: url(../img/up.png) no-repeat;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -webkit-animation: up 1.5s infinite linear;
+    animation: up 1.5s infinite linear;
+}
+
+@-webkit-keyframes up {
+    0% {
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, 20px, 0);
+        transform: translate3d(0, 20px, 0);
+    }
+}
+
+@keyframes up {
+    0% {
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, 20px, 0);
+        transform: translate3d(0, 20px, 0);
+    }
+}
+/**********************************全局************************************/
+/**********************************Loading************************************/
+.loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:#000;
+    max-width:640px;
+}
+
+.loading_txt {
+    font-weight: bold;
+    color: #fff;
+    font-size: 35px;
+    position: absolute;
+    display: block;
+    top:40%;
+    left: 284px;
+}
+/**********************************Loading************************************/
+/**********************************菜单************************************/
+#menu {
+    position: absolute;
+    width: 62px;
+    height: 54px;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+    background: url(../img/menu_btn.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+#menu_m {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    display: none;
+}
+
+#menu_m_list {
+    width: 16%;
+    height: 65%;
+    position: absolute;
+    top: 14%;
+}
+
+    #menu_m_list table {
+        height: 100%;
+        width: 100%;
+    }
+
+#tent_fd {
+    width: 400px;
+    height: 80%;
+    position: absolute;
+    top: 110px;
+    right: 0px;
+}
+/**********************************菜单************************************/
+
+/*********************************第一页************************************/
+#page1 {
+    background: url(../img/p1bg.jpg) no-repeat center;
+    background-size: 640px 1136px;
+    overflow: hidden;
+    z-index: 2;
+}
+/*********************************第一页************************************/
+/*********************************第二页************************************/
+#page2 {
+    background: url(../img/p2bg.jpg) no-repeat center;
+    background-size: 640px 1136px;
+    overflow: hidden;
+    z-index: 2;
+}
+/*********************************第二页************************************/
+/*********************************第三页************************************/
+#page3 {
+    background: url(../img/p3bg.jpg) no-repeat;
+    background-size: 640px 1136px;
+    overflow: hidden;
+    z-index: 2;
+}
+/*********************************第三页************************************/
+/*********************************第四页************************************/
+#page4 {
+    background: url(../img/p4bg.jpg) no-repeat center;
+    background-size: 640px 1136px;
+    overflow: hidden;
+    z-index: 2;
+}
+.case_window {
+    width: 92%;
+    height: 90%;
+    display: block;
+    position: absolute;
+    left: 4%;
+    top: 6%;
+    z-index:12;
+    display:none;
+}
+.window_close {
+    float: right;
+    right: 0;
+}
+/*********************************第四页************************************/
+/*********************************第五页************************************/
+#page5 {
+    background: url(../img/p5bg.jpg) no-repeat center;
+    background-size: 640px 1136px;
+    overflow: hidden;
+    z-index: 2;
+}
+/*********************************第五页************************************/
+/*********************************第六页************************************/
+#page7 {
+    background: url(../img/p7bg.jpg) no-repeat center;
+    background-size: 640px 1136px;
+    overflow: hidden;
+    z-index: 2;
+}
+#citylabel {
+    width: 100%;
+    height: 3%;
+    position: absolute;
+    bottom: 5%;
+    text-align: center;
+    color: white;
+    font-family: 'Microsoft YaHei';
+    font-size: 20px;
+    font-weight: 100;
+}
+/*********************************第六页************************************/
+/**********************************横屏提示************************************/
+.hpts {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    z-index: 30;
+    display: none;
+    max-width:640px;
+}
+
+.crossscreen {
+    position: relative;
+    margin: -50px auto;
+    width: 100px;
+    height: 100px;
+    border: 0;
+    top:50%;
+    background: url(../img/crossscreen.png) no-repeat bottom;
+    background-size: 100% 100%;
+}
+/**********************************横屏提示************************************/

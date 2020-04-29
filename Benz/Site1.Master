@@ -1,0 +1,533 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="SG.APP.Web.Areas.Benz.Site1" %>
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh-cn" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>管理中心 - shougan.com.cn</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link href="Content/CSS/themes1/all.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Content/plugins/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/plugins/font-awesome/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/plugins/simple-line-icons/simple-line-icons.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/plugins/uniform/uniform.default.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/plugins/bootstrap-switch/bootstrap-switch.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/plugins/fancybox/jquery.fancybox.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/plugins/fullcalendar/fullcalendar.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/plugins/jqvmap/jqvmap.css" />
+
+    <link rel="stylesheet" type="text/css" href="/Content/components.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/plugins.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Admin/Pages/tasks.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/admin/layout/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/admin/layout/darkblue.css" />
+
+    <link href="/Content/HelpAlert.css" rel="stylesheet" />
+    <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery-pager/jquery.pager.js"></script>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed page-quick-sidebar-over-content page-style-square">
+    <form id="form1" runat="server">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+                    <a href="javascript:void();">
+                        <img src="/Content/assets/admin/layout/img/logo-benz.png" alt="logo" class="logo-default" />
+                    </a>
+                    <div class="menu-toggler sidebar-toggler hide">
+                    </div>
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN HORIZANTAL MENU -->
+                <!-- DOC: Remove "hor-menu-light" class to have a horizontal menu with theme background instead of white background -->
+                <!-- DOC: This is desktop version of the horizontal menu. The mobile version is defined(duplicated) in the responsive menu below along with sidebar menu. So the horizontal menu has 2 seperate versions -->
+                <div class="hor-menu hor-menu-light hidden-xs">
+                    <ul class="nav navbar-nav">
+                        <!-- DOC: Add data-hover="dropdown", data-close-others="true" and data-toggle="dropdown" attributes for the below "dropdown-toggle" links to enable hover dropdowns -->
+                        <li class="classic-menu-dropdown ">
+                            <a href="/Areas/Benz/list.aspx">客户作品管理
+                            </a>
+                        </li>
+                        <%--  <li class="mega-menu-dropdown">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toogle">
+                        酒店签到查询<i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" style="min-width: 700px;">
+                        <li>
+                            <div class="mega-menu-content">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="mega-menu-submenu">
+                                                <li>
+                                                    <a href="/home/menus/30">
+                                                        微信管理
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/home/menus/33">
+                                                        产品管理
+                                                    </a>
+                                                </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+            <li class="mega-menu-dropdown">
+                <a data-toggle="dropdown" href="" class="dropdown-toggle">
+                    会场签到查询 <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu" style="min-width: 700px;">
+                    <li>
+                        <!-- Content container to add padding -->
+                        <div class="mega-menu-content">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <ul class="mega-menu-submenu">
+                                        <li>
+                                            <h3>公众号管理</h3>
+                                        </li>
+                                        <li>
+                                            <a href="/auth/userauth">
+                                                添加公众号
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_sidebar_search_option1.html">
+                                                在线授权
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_sidebar_search_option2.html">
+                                                Sidebar Search Option 2
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_sidebar_reversed.html">
+                                                Right Sidebar Page
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_sidebar_fixed.html">
+                                                Sidebar Fixed Page
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_sidebar_closed.html">
+                                                Sidebar Closed Page
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul class="mega-menu-submenu">
+                                        <li>
+                                            <h3>用户管理</h3>
+                                        </li>
+                                        <li>
+                                            <a href="index_horizontal_menu.html">
+                                                用户管理
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_horizontal_sidebar_menu.html">
+                                                角色管理
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_glyphicons.html">
+                                                权限管理 <span class="badge badge-roundless badge-danger">
+                                                    new
+                                                </span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="layout_search_on_header1.html">
+                                                Search Box On Header 1
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul class="mega-menu-submenu">
+                                        <li>
+                                            <h3>系统管理</h3>
+                                        </li>
+                                        <li>
+                                            <a href="/config/users">
+                                                添加管理员
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_ajax.html">
+                                                商户信息设置
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_disabled_menu.html">
+                                                基础信息设置
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_blank_page.html">
+                                                修改密码
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_boxed_page.html">
+                                                Boxed Page
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_language_bar.html">
+                                                Language Switch Bar
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="mega-menu-dropdown mega-menu-full">
+                <a data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
+                    服务中心 <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <!-- Content container to add padding -->
+                        <div class="mega-menu-content " style="min-width: 700px;">
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <ul class="mega-menu-submenu">
+                                        <li>
+                                            <h3>购买帮助</h3>
+                                        </li>
+                                        <li>
+                                            <a href="index_horizontal_menu.html">
+                                                <i class="fa fa-angle-right"></i> 产品介绍
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_horizontal_sidebar_menu.html">
+                                                <i class="fa fa-angle-right"></i> 付款方式
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_glyphicons.html">
+                                                <i class="fa fa-angle-right"></i>
+                                                服务条款 <span class="badge badge-roundless badge-danger">
+                                                    new
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_horizontal_menu1.html">
+                                                <i class="fa fa-angle-right"></i> 大客户通道
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_horizontal_menu2.html">
+                                                <i class="fa fa-angle-right"></i> Horizontal Mega Menu 2
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_search_on_header1.html">
+                                                <i class="fa fa-angle-right"></i> Search Box On Header 1
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul class="mega-menu-submenu">
+                                        <li>
+                                            <h3>技术支持</h3>
+                                        </li>
+                                        <li>
+                                            <a href="layout_search_on_header2.html">
+                                                <i class="fa fa-angle-right"></i> 在线服务手册
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_sidebar_search_option1.html">
+                                                <i class="fa fa-angle-right"></i> 常见问题
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_sidebar_search_option2.html">
+                                                <i class="fa fa-angle-right"></i> 在线提问
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_sidebar_reversed.html">
+                                                <i class="fa fa-angle-right"></i> 服务规则
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_sidebar_fixed.html">
+                                                <i class="fa fa-angle-right"></i> Sidebar Fixed Page
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_sidebar_closed.html">
+                                                <i class="fa fa-angle-right"></i> Sidebar Closed Page
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul class="mega-menu-submenu">
+                                        <li>
+                                            <h3>关于我们</h3>
+                                        </li>
+                                        <li>
+                                            <a href="layout_disabled_menu.html">
+                                                <i class="fa fa-angle-right"></i>产品介绍
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_blank_page.html">
+                                                <i class="fa fa-angle-right"></i> 产品优势
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_boxed_page.html">
+                                                <i class="fa fa-angle-right"></i> 关于我们
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_language_bar.html">
+                                                <i class="fa fa-angle-right"></i> 联系我们
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="layout_ajax.html">
+                                                <i class="fa fa-angle-right"></i> 商务合作
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>--%>
+                    </ul>
+                </div>
+                <!-- END HORIZANTAL MENU -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"></a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <!-- 公众号列表 -->
+
+                        <!-- END USER LOGIN DROPDOWN -->
+                        <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                        <li class="dropdown dropdown-quick-sidebar-toggler">
+                            <a href="javascript:void();" class="dropdown-toggle" style="font-size: 16px; color: white;">
+                                <%if (SG.APP.Client.Logic.CurrentLogonInfo.ComAppLogon == null || SG.APP.Client.Logic.CurrentLogonInfo.ComAppLogon.UACUserInfo == null)
+                                    {
+                                        Response.Redirect("/home/Benz");
+                                    }
+                                    else
+                                    {
+                                        Response.Write(new SG.APP.Client.Logic.CLBenzService().GetBenzDealerInfo(SG.APP.Client.Logic.CurrentLogonInfo.ComAppLogon.UACUserInfo.DealerID).OwnName);
+                                        //Response.Write(SG.APP.Client.Logic.CurrentLogonInfo.ComAppLogon.UACUserInfo.UserName);
+                                    } %>
+                            </a>
+                        </li>
+                        <li class="dropdown dropdown-quick-sidebar-toggler" style="position:relative;">
+                            <a href="javascript:void();" class="dropdown-toggle">
+                                <i class="icon-user" id="show_modify_password_con"></i>
+                            </a>
+                            <div id="modify_password_con" style="width:280px; height:auto; border: 1px solid ; padding:10px; color: #808080; position: absolute; right: 0px; opacity:0.9; background: #ffffff; display:none;">
+                                <table width="280">
+                                    <tr>
+                                        <td height="35" align="center" valign="middle">原密码：</td>
+                                        <td>
+                                            <input type="password" class="form-control" id="txt_oldpwd" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td height="35" align="center" valign="middle">新密码 ：</td>
+                                        <td>
+                                            <input type="password" class="form-control" id="txt_newpwd"  /></td>
+                                    </tr>
+                                    <tr>
+                                         <td height="35" align="center" valign="middle"></td>
+                                        <td><button id="btn_cancel_modify" type="button" data-dismiss="modal" class="btn btn-outline dark">取消</button>&nbsp;&nbsp;
+                                            <button id="btn_save_modify" type="button" class="btn green sbmMiMa">确认</button></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <script>
+                                $(function () {
+                                    $("#show_modify_password_con").click(function () {
+                                        $("#modify_password_con").fadeIn();
+                                    })
+
+                                    $("#btn_cancel_modify").click(function () {
+                                        $("#modify_password_con").fadeOut();
+                                    })
+
+                                    $("#btn_save_modify").click(function () {
+                                        var oldPwd = $.trim($("#txt_oldpwd").val());
+                                        var newPwd = $.trim($("#txt_newpwd").val());
+
+                                        if (oldPwd == "" || newPwd == "") {
+                                            return false;
+                                        }
+                                        $.ajax({
+                                            type: "POST",// 请求方式
+                                            url: "../../Home/ModifyUserPassword",// 请求url地址
+                                            data: { oldPwd: oldPwd, newPwd: newPwd },
+                                            dataType: "text",// 数据返回类型
+                                            success: function (data) {
+                                                // 请求发送成功后执行的函数,data是返回的数据。
+                                                if (data == "true") {
+                                                    alert("密码修改成功，请使用新密码重新登录！");
+                                                    window.location.href = "../../Home/Logout";
+                                                }
+                                                else if (data == "oldpwderror") {
+                                                    alert("原密码错误！");
+                                                }
+                                            },
+                                            timeout: 3000,// 超时设置,如果3秒内请求无响应,则执行error定义的方法
+                                            error: function () {
+                                                // code
+                                            },
+                                            async: true,// 默认设置为true，所有请求均为异步请求。
+                                        })
+                                    })
+                                })
+                            </script>
+                        </li>
+                        <li class="dropdown dropdown-quick-sidebar-toggler">
+                            <a href="/Home/Logout" class="dropdown-toggle">
+                                <i class="icon-logout"></i>
+                            </a>
+                        </li>
+                        <!-- END QUICK SIDEBAR TOGGLER -->
+
+                    </ul>
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+
+            <!-- END HEADER INNER -->
+        </div>
+        <!-- END HEADER -->
+        <div class="clearfix">
+        </div>
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+
+                <div style="padding: 20px; background-color: white; min-height:600px;" id="page-content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="page-footer">
+            <div class="page-footer-inner">
+                2016 &copy; App by www.shougan.com.cn.
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- BEGIN CORE PLUGINS -->
+        <!--[if lt IE 9]>
+    <script type="text/javascript" src="~/Scripts/respond.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/excanvas.min.js"></script>
+    <![endif]-->
+
+        <script type="text/javascript" src="/Scripts/jquery-migrate.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/Scripts/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/Scripts/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery.blockui.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery.cokie.min.js"></script>
+        <script type="text/javascript" src="/Scripts/uniform/jquery.uniform.min.js"></script>
+        <script type="text/javascript" src="/Scripts/bootstrap-switch/bootstrap-switch.min.js"></script>
+        <script type="text/javascript" src="/Scripts/masonry/imagesloaded.pkgd.min.js"></script>
+        <script type="text/javascript" src="/Scripts/masonry/masonry.pkgd.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-mixitup/jquery.mixitup.min.js"></script>
+        <script type="text/javascript" src="/Scripts/fancybox/jquery.fancybox.pack.js"></script>
+        <script type="text/javascript" src="/Scripts/bootbox/bootbox.min.js"></script>
+
+        <script type="text/javascript" src="/Scripts/admin/metronic.js"></script>
+        <script type="text/javascript" src="/Scripts/admin/pages/tasks.js"></script>
+        <script type="text/javascript" src="/Scripts/admin/pages/index.js"></script>
+        <script type="text/javascript" src="/Scripts/admin/pages/ui-alert-dialog-api.js"></script>
+        <script type="text/javascript" src="/Scripts/admin/layout/layout.js"></script>
+        <script type="text/javascript" src="/Scripts/admin/layout/quick-sidebar.js"></script>
+        <script type="text/javascript" src="/Scripts/admin/layout/demo.js"></script>
+        <script type="text/javascript" src="/Scripts/HelpAlert.js"></script>
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+
+
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <script>
+            jQuery(document).ready(function () {
+                Metronic.init(); // init metronic core componets
+                Layout.init(); // init layout
+                //QuickSidebar.init(); // init quick sidebar
+                Demo.init(); // init demo features
+                Index.init();
+                Index.initDashboardDaterange();
+                Index.initJQVMAP(); // init index page's custom scripts
+                Index.initCalendar(); // init index page's custom scripts
+                Index.initCharts(); // init index page's custom scripts
+                Index.initChat();
+                Index.initMiniCharts();
+                Tasks.initDashboardWidget();
+                UIAlertDialogApi.init();
+            });
+        </script>
+        <!-- END JAVASCRIPTS -->
+    </form>
+</body>
+<!-- END BODY -->
+</html>
+
+
+

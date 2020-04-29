@@ -1,0 +1,60 @@
+﻿ *{font-family:Tahoma, Arial, Helvetica, Sans-serif,"宋体";font-size: 12px;}
+.table{
+
+color:#333333;
+text-align:center;
+border-collapse:collapse;/*细线表格代码*/
+}
+.table td{
+border:1px solid #fff;/*细线表格线条颜色*/
+height:22px;
+}
+ 
+ 
+.table caption{text-align:left;font-size:12px;font-weight:bold;margin:2px 2px; color:#ff6600;}
+.table tr.t1 td {background-color:#fffac1;}/* 交替行第一行的背景色 */
+.table tr.t2 td {background-color:#fff;}/* 交替行第二行的背景色 */
+.table tr.t3 td {background-color:#ffeb97;}/* 鼠标经过时的背景色 */
+
+.table th,tfoot tr td{font-weight:bold;text-align:center;background-image:url(../images/pic-01.png)}
+.table th{line-height:28px;height:29px; border:1px solid #fff; }
+.table tfoot tr td{background:#fff;line-height:26px;height:26px;}
+.table thead{border:1px solid #ffffff;color:#ffffff;}
+.table thead tr td{text-align:center; color:#ffffff;}
+
+#page{text-align:center;float:right;}
+#page a,#page a:visited{width:60px;height:22px;line-height:22px;border:1px black solid;display:block;float:left;margin:0 3px;background:#c9c9c9;
+text-decoration:none;}
+#page a:hover{background:#c1c1c1;text-decoration:none;}
+.grayr {padding:2px;font-size:11px;background:#fff;float:right;}
+.grayr a {padding:2px 5px;margin:2px;color:#000;text-decoration:none;border:1px #c0c0c0 solid;}
+.grayr a:hover {color:#000;border:1px orange solid;}
+.grayr a:active {color:#000;background: #99ffff}
+.grayr span.current {padding:2px 5px;font-weight:bold; margin:2px; color: #303030;background:#fff;border:1px orange solid;}
+.grayr span.disabled {padding:2px 5px;margin:2px;color:#797979;background: #c1c1c1;border:1px #c1c1c1 solid;}
+
+
+
+
+
+
+
+
+div.RoundedCorner{background: #9BD1FA; width:98%;margin:20px auto; } 
+b.rtop, b.rbottom{display:block;background: #ff0000} 
+b.rtop b, b.rbottom b{display:block;height: 1px;overflow: hidden; background: #9BD1FA} 
+b.r1{margin: 0 5px} 
+b.r2{margin: 0 3px} 
+b.r3{margin: 0 2px} 
+b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px} 
+
+
+
+
+.searchTable{ border:1px solid #ccc; width:98%; 
+margin:20px auto;
+  background-color:#e9ecee;
+height:40px;
+font-size:12px;
+color:#333333;
+text-align:center;
